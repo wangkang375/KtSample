@@ -2,8 +2,7 @@ package com.example.wk.frameworkk.base
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.example.wk.frameworkk.R
-import com.jaeger.library.StatusBarUtil
+
 
 /**
  * <p> 基类
@@ -17,9 +16,12 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layout())
+        initInstanceState(savedInstanceState)
         initView()
         initData()
     }
+
+    abstract fun initInstanceState(savedInstanceState: Bundle?)
 
     private fun initData() {
 

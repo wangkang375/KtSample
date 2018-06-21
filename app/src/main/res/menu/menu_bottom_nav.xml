@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/item_home" android:title="@string/menu_nav_home"/>
+    <item android:id="@+id/item_find" android:title="@string/menu_nav_find"/>
+    <item android:id="@+id/item_collect" android:title="@string/menu_nav_collect"/>
+    <item android:id="@+id/item_mine" android:title="@string/menu_nav_mine"/>
+</menu>
