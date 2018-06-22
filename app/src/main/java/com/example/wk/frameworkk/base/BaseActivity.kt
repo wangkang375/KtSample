@@ -23,7 +23,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     abstract fun initInstanceState(savedInstanceState: Bundle?)
 
-    private fun initData() {
+    protected  open fun initData() {
 
     }
 
