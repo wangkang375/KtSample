@@ -6,9 +6,9 @@ import com.example.wk.frameworkk.R
 import com.example.wk.frameworkk.Request
 import com.example.wk.frameworkk.base.BaseFragment
 import com.example.wk.frameworkk.http.HttpManager
+import com.example.wk.frameworkk.utils.SPProxy
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_home.*
 
 /**
  * <p>
@@ -21,6 +21,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 class HomeFragment : BaseFragment() {
 
     var title: String? = null
+    private var token: String by SPProxy("token", "")
 
     companion object {
         fun getInstance(title: String): HomeFragment {
@@ -50,6 +51,8 @@ class HomeFragment : BaseFragment() {
 
     private fun toast(t: Request?) {
         println(t.toString())
+        token="1000000"
+        print("================$token")
     }
 
     override fun fragmentLayout(): Int {

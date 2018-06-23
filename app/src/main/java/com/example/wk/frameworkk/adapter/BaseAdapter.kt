@@ -5,6 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.wk.frameworkk.R
+import com.example.wk.frameworkk.adapter.BaseAdapter.Companion.DEFAULT_ITEM
+import com.example.wk.frameworkk.adapter.BaseAdapter.Companion.EMP_ITEM
+import com.example.wk.frameworkk.adapter.BaseAdapter.Companion.EXC_ITEM
+import com.example.wk.frameworkk.adapter.BaseAdapter.Companion.USE_ITEM
 
 import com.example.wk.frameworkk.adapter.vh.DefultVH
 import com.example.wk.frameworkk.imp.OnclickItem
@@ -38,18 +42,10 @@ abstract class BaseAdapter<T, UVH : RecyclerView.ViewHolder> : RecyclerView.Adap
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent!!.context)
         return when (viewType) {
-            DEFAULT_ITEM -> {
-                DefultVH(inflater.inflate(defaultLayout(), parent, false))
-            }
-            EXC_ITEM -> {
-                DefultVH(inflater.inflate(defaultLayout(), parent, false))
-            }
-            EMP_ITEM -> {
-                DefultVH(inflater.inflate(defaultLayout(), parent, false))
-            }
-            else -> {
-                this.useVH(inflater.inflate(this.useLayout(), parent, false))
-            }
+            DEFAULT_ITEM -> DefultVH(inflater.inflate(defaultLayout(), parent, false))
+            EXC_ITEM -> DefultVH(inflater.inflate(defaultLayout(), parent, false))
+            EMP_ITEM -> DefultVH(inflater.inflate(defaultLayout(), parent, false))
+            else -> this.useVH(inflater.inflate(this.useLayout(), parent, false))
         }
     }
 
@@ -80,7 +76,7 @@ abstract class BaseAdapter<T, UVH : RecyclerView.ViewHolder> : RecyclerView.Adap
      * 加载数据
      */
     fun loadData(x: ArrayList<T>) {
-        if (status == Status.REFRESH||status==Status.DEFAULT) {
+        if (status == Status.REFRESH || status == Status.DEFAULT) {
             setStatus(Status.LOAD)
             data.clear()
             data.addAll(x)
@@ -93,6 +89,11 @@ abstract class BaseAdapter<T, UVH : RecyclerView.ViewHolder> : RecyclerView.Adap
 
     private fun setStatus(refresh: Status) {
         status = refresh
+    }
+
+    private fun loadError() {
+        setStatus(Status.ERROR)
+        notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {

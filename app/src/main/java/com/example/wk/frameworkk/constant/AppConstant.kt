@@ -12,5 +12,6 @@ class AppConstant {
 
     companion object {
         var BASE_URL = "http://v3.wufazhuce.com:8000/"
+        var SP_NAME="ktsample"
     }
 }
