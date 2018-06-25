@@ -53,7 +53,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
     //okhttp 网络请求log 拦截器
     compile 'com.squareup.okhttp3:logging-interceptor:3.7.0'
-//gson
+    //gson
     compile 'com.google.code.gson:gson:2.8.0'
     //ktx
     //    implementation 'androidx.core:core-ktx:1.0.0-alpha1'

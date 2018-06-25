@@ -11,7 +11,9 @@ package com.example.wk.frameworkk.constant
 class AppConstant {
 
     companion object {
-        var BASE_URL = "http://v3.wufazhuce.com:8000/"
+        var BASE_URL = "http://www.wanandroid.com"
         var SP_NAME="ktsample"
+        val WEB_URL="WEB_URL"
+        val TITLE="TITLE"
     }
 }

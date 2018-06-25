@@ -19,8 +19,11 @@ abstract class BaseFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val inflate = inflater.inflate(fragmentLayout(), container, false)
         initView(inflate)
+        initData()
         return inflate
     }
+
+    abstract fun initData()
 
     abstract fun initView(inflate: View?)
 

@@ -15,6 +15,10 @@ import com.example.wk.frameworkk.ui.home.HomeFragment
  * E-mail:wangkang@huolicai.com
  */
 class MineFragment : BaseFragment() {
+    override fun initData() {
+
+
+    }
 
     var title: String? = null
 

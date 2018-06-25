@@ -14,6 +14,11 @@ import com.example.wk.frameworkk.base.BaseFragment
  * E-mail:wangkang@huolicai.com
  */
 class FindFragment : BaseFragment() {
+    override fun initData() {
+
+
+    }
+
     var title: String? = null
     companion object {
         fun getInstance(title: String): FindFragment {

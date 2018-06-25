@@ -17,11 +17,11 @@ import java.util.concurrent.TimeUnit
  * E-mail:wangkang@huolicai.com
  */
 object HttpManager {
-    private var service: ApiService? = null
-    private var retrofit: Retrofit? = null
 
-    fun init() {
-        retrofit = Retrofit.Builder()
+    private val retrofit: Retrofit by lazy { init() }
+
+    fun init(): Retrofit {
+        return Retrofit.Builder()
                 .baseUrl(AppConstant.BASE_URL)
                 .client(getOkHttp())
                 .addConverterFactory(GsonConverterFactory.create())
@@ -39,8 +39,7 @@ object HttpManager {
                 .build()
     }
 
-    fun api(): ApiService? {
-        service = retrofit?.create(ApiService::class.java)
-        return service
+    fun api(): ApiService {
+        return retrofit.create(ApiService::class.java)
     }
 }

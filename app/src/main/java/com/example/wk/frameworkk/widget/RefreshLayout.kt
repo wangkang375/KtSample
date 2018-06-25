@@ -18,11 +18,14 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout
  */
 class RefreshLayout(context: Context?, attrs: AttributeSet?) : FrameLayout(context, attrs) {
     private var mInflater: LayoutInflater? = LayoutInflater.from(context)
+    private var recyclerView: RecyclerView? = null
+    private var refreshLayout: SmartRefreshLayout? = null
 
     init {
         mInflater!!.inflate(R.layout.layout_refresh, this)
-        val recyclerView = findViewById<RecyclerView>(R.id.recycle_view)
-        val refreshLayout = findViewById<SmartRefreshLayout>(R.id.smartRefresh)
-
+        recyclerView = findViewById(R.id.recycle_view)
+        refreshLayout = findViewById(R.id.main_smartRefresh)
     }
+
+
 }

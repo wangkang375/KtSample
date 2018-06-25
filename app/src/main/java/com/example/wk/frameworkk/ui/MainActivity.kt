@@ -9,7 +9,6 @@ import android.support.v7.widget.RecyclerView
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem
 import com.example.wk.frameworkk.R
-import com.example.wk.frameworkk.Request
 import com.example.wk.frameworkk.TestAdapter
 import com.example.wk.frameworkk.base.BaseActivity
 import com.example.wk.frameworkk.ui.collect.CollectFragment

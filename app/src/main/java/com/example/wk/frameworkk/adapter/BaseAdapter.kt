@@ -26,7 +26,7 @@ import java.util.*
 abstract class BaseAdapter<T, UVH : RecyclerView.ViewHolder> : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     public var data: ArrayList<T> = ArrayList()
     private var status: Status = Status.DEFAULT
-    private val onclickItem: OnclickItem<T, UVH>? = null
+    private var onclickItem: OnclickItem<T, UVH>? = null
 
     companion object {
         const val USE_ITEM = 1000//用户条目
@@ -118,6 +118,10 @@ abstract class BaseAdapter<T, UVH : RecyclerView.ViewHolder> : RecyclerView.Adap
                 }
             }
         }
+    }
+
+    open fun setOnclickItemLis(x: OnclickItem<T, UVH>) {
+        onclickItem = x
     }
 
     /**
