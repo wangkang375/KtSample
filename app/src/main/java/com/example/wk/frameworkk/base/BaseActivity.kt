@@ -4,8 +4,12 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
+import android.widget.Toast
+import cn.sharesdk.framework.Platform
+import cn.sharesdk.framework.PlatformActionListener
 
 import com.example.wk.frameworkk.R
+import java.util.HashMap
 
 
 /**
@@ -16,7 +20,7 @@ import com.example.wk.frameworkk.R
  * <p>
  * E-mail:wangkang@huolicai.com
  */
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity(), PlatformActionListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layout())
@@ -51,5 +55,24 @@ abstract class BaseActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    /**
+     * 以下分享回调
+     */
+    override fun onComplete(p0: Platform?, p1: Int, p2: HashMap<String, Any>?) {
+        tosat(p0?.name)
+    }
+
+    override fun onCancel(p0: Platform?, p1: Int) {
+        tosat("取消分享")
+    }
+
+    override fun onError(p0: Platform?, p1: Int, p2: Throwable?) {
+        tosat(p2?.message!!)
+    }
+
+    fun tosat(x: String?) {
+        Toast.makeText(this, x, Toast.LENGTH_SHORT).show()
     }
 }

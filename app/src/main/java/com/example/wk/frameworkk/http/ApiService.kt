@@ -2,10 +2,10 @@ package com.example.wk.frameworkk.http
 
 import com.example.wk.frameworkk.bean.BannerRe
 import com.example.wk.frameworkk.bean.HomeResponse
+import com.example.wk.frameworkk.bean.LoginResponse
 import com.example.wk.frameworkk.bean.Response
 import io.reactivex.Observable
-import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.*
 
 /**
  * <p>
@@ -28,4 +28,34 @@ interface ApiService {
      */
     @GET("/banner/json")
     fun getHomeBanner(): Observable<Response<ArrayList<BannerRe>>>
+
+
+    /**
+     * 登陆
+     */
+
+    /**
+     * 登录
+     * @param username username
+     * @param password password
+     * @return Deferred<LoginResponse>
+     */
+    @POST("/user/login")
+    @FormUrlEncoded
+    fun loginWanAndroid(
+            @Field("username") username: String,
+            @Field("password") password: String
+    ): Observable<Response<LoginResponse>>
+
+    /**
+     * 注册
+     */
+
+    @POST("/user/register")
+    @FormUrlEncoded
+    fun registerWanAndroid(
+            @Field("username") username: String,
+            @Field("password") password: String,
+            @Field("repassword") repassowrd: String
+    ): Observable<Response<LoginResponse>>
 }

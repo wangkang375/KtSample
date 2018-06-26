@@ -64,7 +64,7 @@ class HomeFragment : BaseFragment(), OnclickItem<BannerRe, BannerVH> {
         val content = inflate.findViewById<RecyclerView>(R.id.recycle_content)
         homeAdapter.setOnclickItemLis(object : OnclickItem<HomeItem, HomeVH> {
             override fun clickItemListener(data: HomeItem, position: Int, vh: HomeVH) {
-              startWebView(data.link,data.chapterName)
+                startWebView(data.link, data.chapterName)
             }
 
         })
@@ -74,7 +74,7 @@ class HomeFragment : BaseFragment(), OnclickItem<BannerRe, BannerVH> {
 
 
     override fun clickItemListener(data: BannerRe, position: Int, vh: BannerVH) {
-        startWebView(data.url,data.title)
+        startWebView(data.url, data.title)
 
     }
 

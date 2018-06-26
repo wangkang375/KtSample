@@ -4,12 +4,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentTransaction
-import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem
 import com.example.wk.frameworkk.R
-import com.example.wk.frameworkk.TestAdapter
+
 import com.example.wk.frameworkk.base.BaseActivity
 import com.example.wk.frameworkk.ui.collect.CollectFragment
 import com.example.wk.frameworkk.ui.find.FindFragment
@@ -29,7 +28,6 @@ class MainActivity : BaseActivity() {
 
     }
 
-    private lateinit var testAdapter: TestAdapter
     private lateinit var list: ArrayList<String>
 
     companion object {
@@ -37,8 +35,6 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initView() {
-        val recyclerView = findViewById<RecyclerView>(R.id.recycle_view1)
-        setAdapter(recyclerView)
         setupNav()
         initFragments()
         selectFragment(0)
@@ -67,17 +63,6 @@ class MainActivity : BaseActivity() {
     /**
      * test
      */
-    private fun setAdapter(recyclerView: RecyclerView) {
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        testAdapter = TestAdapter()
-        recyclerView.adapter = testAdapter
-        handler.postDelayed({
-            runOnUiThread {
-                list = ArrayList()
-                testAdapter.loadData(list)
-            }
-        }, 2000)
-    }
 
     /**
      * 配置底部导航栏
@@ -120,4 +105,6 @@ class MainActivity : BaseActivity() {
             }
         }
     }
+
+
 }

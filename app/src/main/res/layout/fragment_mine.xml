@@ -1,13 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/tv_fragment"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:src="@color/colorPrimary" />
+
+    <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#d614c5"
-        android:gravity="center"
-        android:text="MINE"
-        android:textSize="19sp" />
-</android.support.constraint.ConstraintLayout>
+        android:layout_height="1px"
+        android:layout_marginTop="220dp"
+        android:background="#aeadad" />
+
+    <LinearLayout
+        android:id="@+id/ll_reg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/ed_name"
+            style="@style/Base.Widget.AppCompat.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入账号" />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/ed_password"
+            style="@style/Base.Widget.AppCompat.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="请输入密码" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/bt"
+            style="@style/Base.TextAppearance.AppCompat.Widget.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:text="注册" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/bt_login"
+            style="@style/Base.TextAppearance.AppCompat.Widget.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:text="登陆" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/use_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="250dp"
+        android:text="位置"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp"
+        android:visibility="gone" />
+</FrameLayout>

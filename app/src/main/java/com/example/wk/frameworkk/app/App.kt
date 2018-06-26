@@ -6,6 +6,8 @@ import android.app.Application
 import android.content.Context
 import android.os.Bundle
 import com.example.wk.frameworkk.http.HttpManager
+import com.mob.MobSDK
+import com.tencent.bugly.Bugly
 import okhttp3.logging.HttpLoggingInterceptor
 
 /**
@@ -17,6 +19,8 @@ import okhttp3.logging.HttpLoggingInterceptor
  * E-mail:wangkang@huolicai.com
  */
 class App : Application() {
+    val AppID: String = "629aa92ed6"
+
     companion object {
         @SuppressLint("StaticFieldLeak")
         lateinit var context: Context
@@ -26,6 +30,8 @@ class App : Application() {
         super.onCreate()
         context = applicationContext
 //        initRetrofit()
+        Bugly.init(applicationContext, AppID, true)
+        MobSDK.init(this)
     }
 
     /**

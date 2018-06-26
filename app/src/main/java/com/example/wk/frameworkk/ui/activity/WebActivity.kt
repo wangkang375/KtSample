@@ -6,6 +6,8 @@ import android.graphics.Color
 import android.icu.lang.UCharacter.GraphemeClusterBreak.V
 import android.os.Bundle
 import android.view.KeyEvent
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.webkit.WebChromeClient
@@ -13,9 +15,13 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
+import cn.sharesdk.sina.weibo.SinaWeibo
+import cn.sharesdk.tencent.qq.QQ
+import cn.sharesdk.wechat.friends.Wechat
 import com.example.wk.frameworkk.R
 import com.example.wk.frameworkk.base.BaseActivity
 import com.example.wk.frameworkk.constant.AppConstant
+import com.example.wk.frameworkk.utils.ShareUtils
 import com.jaeger.library.StatusBarUtil
 
 /**
@@ -37,7 +43,7 @@ class WebActivity : BaseActivity() {
     }
 
     override fun initView() {
-        StatusBarUtil.setColor(this, resources.getColor(R.color.colorPrimary),0)
+        StatusBarUtil.setColor(this, resources.getColor(R.color.colorPrimary), 0)
         mTitle?.let { initToolbar(it) }
         progressBar = findViewById(R.id.progress)
         webview = findViewById(R.id.webView)
@@ -112,5 +118,27 @@ class WebActivity : BaseActivity() {
             return true
         }
         return super.onKeyDown(keyCode, event)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_share, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.action_share -> {
+                val shareUtils = ShareUtils(QQ.NAME)
+                shareUtils.build(this)
+                        .title("title")
+                        .text("text")
+                        .share()
+            }
+            else -> {
+            }
+        }
+
+
+        return super.onOptionsItemSelected(item)
     }
 }
