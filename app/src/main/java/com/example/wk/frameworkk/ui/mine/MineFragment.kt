@@ -1,5 +1,6 @@
 package com.example.wk.frameworkk.ui.mine
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v7.widget.AppCompatEditText
 import android.text.TextUtils
@@ -8,15 +9,14 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.wk.frameworkk.R
+import com.example.wk.frameworkk.app.App
 import com.example.wk.frameworkk.base.BaseFragment
 import com.example.wk.frameworkk.bean.LoginResponse
 import com.example.wk.frameworkk.bean.Response
 import com.example.wk.frameworkk.http.HttpManager
-import com.example.wk.frameworkk.ui.home.HomeFragment
+import com.example.wk.frameworkk.utils.AppUtils
 import com.example.wk.frameworkk.utils.SPProxy
-import com.mob.tools.log.MobUncaughtExceptionHandler.register
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
 
 /**
@@ -30,10 +30,10 @@ import io.reactivex.schedulers.Schedulers
 class MineFragment : BaseFragment() {
 
     var name: AppCompatEditText? = null
-    var password: AppCompatEditText? = null
+    private var password: AppCompatEditText? = null
     private var ll_reg: LinearLayout? = null
-    var username: TextView? = null
-    var usename: String by SPProxy("usename", "")
+    private var username: TextView? = null
+    private var usename: String by SPProxy("usename", "")
     override fun initData() {
         if (TextUtils.isEmpty(usename)) {
             ll_reg?.visibility = View.VISIBLE
@@ -58,12 +58,14 @@ class MineFragment : BaseFragment() {
     }
 
 
+    @SuppressLint("SetTextI18n")
     override fun initView(inflate: View?) {
         name = inflate?.findViewById(R.id.ed_name)
         password = inflate?.findViewById(R.id.ed_password)
         ll_reg = inflate?.findViewById(R.id.ll_reg)
         username = inflate?.findViewById(R.id.use_name)
         val bt = inflate?.findViewById<Button>(R.id.bt)
+        inflate?.findViewById<TextView>(R.id.tv_version_code)?.text = "版本号：${AppUtils.getAppInfo(App.context)}"
         bt?.setOnClickListener { registerA() }
         val login = inflate?.findViewById<Button>(R.id.bt_login)
         login?.setOnClickListener { loginA() }
@@ -73,7 +75,7 @@ class MineFragment : BaseFragment() {
         HttpManager.api().loginWanAndroid(name?.text.toString(), password?.text.toString())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe {t: Response<LoginResponse>? ->
+                .subscribe { t: Response<LoginResponse>? ->
                     toast(t)
                 }
 

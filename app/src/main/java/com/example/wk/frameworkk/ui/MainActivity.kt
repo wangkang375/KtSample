@@ -68,10 +68,10 @@ class MainActivity : BaseActivity() {
      * 配置底部导航栏
      */
     private fun setupNav() {
-        val home = AHBottomNavigationItem("首页", R.drawable.ic_launcher_background)
-        val find = AHBottomNavigationItem("发现", R.drawable.ic_launcher_background)
-        val mine = AHBottomNavigationItem("我的", R.drawable.ic_launcher_background)
-        val news = AHBottomNavigationItem("消息", R.drawable.ic_launcher_background)
+        val home = AHBottomNavigationItem("首页", R.drawable.ic_home_black_24dp)
+        val find = AHBottomNavigationItem("发现", R.drawable.ic_find_in_page_black_24dp)
+        val mine = AHBottomNavigationItem("我的", R.drawable.ic_assignment_ind_black_24dp)
+        val news = AHBottomNavigationItem("消息", R.drawable.ic_message_black_24dp)
         bottom_navigation_.addItem(home)
         bottom_navigation_.addItem(news)
         bottom_navigation_.addItem(find)
