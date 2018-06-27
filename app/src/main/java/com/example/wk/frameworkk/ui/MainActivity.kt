@@ -1,10 +1,13 @@
 package com.example.wk.frameworkk.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentTransaction
 import android.support.v7.widget.RecyclerView
+import android.widget.Toast
+import cn.jpush.android.api.JPushInterface
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem
 import com.example.wk.frameworkk.R
@@ -51,6 +54,19 @@ class MainActivity : BaseActivity() {
         fragments.add(mineFragment!!)
     }
 
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        if (null != intent) {
+            val bundle = intent.extras
+            var title: String? = null
+            var content: String? = null
+            if (bundle != null) {
+                title = bundle.getString(JPushInterface.EXTRA_NOTIFICATION_TITLE)
+                content = bundle.getString(JPushInterface.EXTRA_ALERT)
+            }
+            toast("收到通知信息==Title : $title  Content : $content")
+        }
+    }
 
     override fun initData() {
 

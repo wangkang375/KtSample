@@ -61,18 +61,18 @@ abstract class BaseActivity : AppCompatActivity(), PlatformActionListener {
      * 以下分享回调
      */
     override fun onComplete(p0: Platform?, p1: Int, p2: HashMap<String, Any>?) {
-        tosat(p0?.name)
+        toast(p0?.name)
     }
 
     override fun onCancel(p0: Platform?, p1: Int) {
-        tosat("取消分享")
+        toast("取消分享")
     }
 
     override fun onError(p0: Platform?, p1: Int, p2: Throwable?) {
-        tosat(p2?.message!!)
+        toast(p2?.message!!)
     }
 
-    fun tosat(x: String?) {
+    fun toast(x: String?) {
         Toast.makeText(this, x, Toast.LENGTH_SHORT).show()
     }
 }

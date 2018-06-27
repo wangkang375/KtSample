@@ -5,6 +5,7 @@ import android.app.Activity
 import android.app.Application
 import android.content.Context
 import android.os.Bundle
+import cn.jpush.android.api.JPushInterface
 import com.example.wk.frameworkk.http.HttpManager
 import com.mob.MobSDK
 import com.tencent.bugly.Bugly
@@ -29,17 +30,16 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         context = applicationContext
-//        initRetrofit()
+        initSDK()
+
+    }
+
+    private fun initSDK() {
         Bugly.init(applicationContext, AppID, true)
         MobSDK.init(this)
-    }
+        JPushInterface.setDebugMode(true)
+        JPushInterface.init(this)
 
-    /**
-     * 初始化retrofit
-     */
-    private fun initRetrofit() {
-        HttpManager.init()
     }
-
 
 }
