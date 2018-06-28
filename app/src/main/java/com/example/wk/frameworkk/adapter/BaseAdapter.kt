@@ -39,8 +39,8 @@ abstract class BaseAdapter<T, UVH : RecyclerView.ViewHolder> : RecyclerView.Adap
         DEFAULT, REFRESH, LOAD, ERROR
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
-        val inflater = LayoutInflater.from(parent!!.context)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
         return when (viewType) {
             DEFAULT_ITEM -> DefultVH(inflater.inflate(defaultLayout(), parent, false))
             EXC_ITEM -> DefultVH(inflater.inflate(defaultLayout(), parent, false))
@@ -96,7 +96,7 @@ abstract class BaseAdapter<T, UVH : RecyclerView.ViewHolder> : RecyclerView.Adap
         notifyDataSetChanged()
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (getItemViewType(position)) {
             DEFAULT_ITEM -> {
                 val defultVH = holder as DefultVH

@@ -11,8 +11,8 @@ import android.widget.TextView
 import com.example.wk.frameworkk.R
 import com.example.wk.frameworkk.app.App
 import com.example.wk.frameworkk.base.BaseFragment
-import com.example.wk.frameworkk.bean.LoginResponse
 import com.example.wk.frameworkk.bean.Response
+import com.example.wk.frameworkk.bean.User
 import com.example.wk.frameworkk.http.HttpManager
 import com.example.wk.frameworkk.utils.AppUtils
 import com.example.wk.frameworkk.utils.SPProxy
@@ -75,7 +75,7 @@ class MineFragment : BaseFragment() {
         HttpManager.api().loginWanAndroid(name?.text.toString(), password?.text.toString())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { t: Response<LoginResponse>? ->
+                .subscribe { t: Response<User>? ->
                     toast(t)
                 }
 
@@ -89,7 +89,7 @@ class MineFragment : BaseFragment() {
 
     }
 
-    private fun toast(t: Response<LoginResponse>?) {
+    private fun toast(t: Response<User>?) {
         usename = t?.data?.username!!
         ll_reg?.visibility = View.GONE
         username?.visibility = View.VISIBLE

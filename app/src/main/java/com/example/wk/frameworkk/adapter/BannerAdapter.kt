@@ -22,8 +22,8 @@ class BannerAdapter(banners: ArrayList<BannerRe>, with: GlideRequests, onclickIt
     private val imageRequest: GlideRequests by lazy { with }
     var onclick = onclickItem
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): BannerVH {
-        val inflate = LayoutInflater.from(parent?.context).inflate(R.layout.item_banner, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BannerVH {
+        val inflate = LayoutInflater.from(parent.context).inflate(R.layout.item_banner, parent, false)
         return BannerVH(inflate)
     }
 
@@ -31,14 +31,14 @@ class BannerAdapter(banners: ArrayList<BannerRe>, with: GlideRequests, onclickIt
         return datas.size
     }
 
-    override fun onBindViewHolder(holder: BannerVH?, position: Int) {
+    override fun onBindViewHolder(holder: BannerVH, position: Int) {
         val bannerRe = datas[position]
-        holder?.imageView?.let {
+        holder.imageView?.let {
             imageRequest.load(bannerRe.imagePath)
                     .centerCrop()
                     .into(it)
         }
-        holder?.itemView?.setOnClickListener { onclick.clickItemListener(bannerRe, position, holder) }
+        holder.itemView?.setOnClickListener { onclick.clickItemListener(bannerRe, position, holder) }
     }
 
     fun addData(data: ArrayList<BannerRe>) {

@@ -2,8 +2,8 @@
 ext {
 
     dependencies = [
-            appcompatV7: 'com.android.support:appcompat-v7:27.0.2',
-            design     : 'com.android.support:design:27.0.2',
-            recycleview: 'com.android.support:recyclerview-v7:27.0.2'
+            appcompatV7: 'com.android.support:appcompat-v7:27.1.1',
+            design     : 'com.android.support:design:27.1.1',
+            recycleview: 'com.android.support:recyclerview-v7:27.1.1'
     ]
 }

@@ -41,6 +41,15 @@ class MainActivity : BaseActivity() {
         setupNav()
         initFragments()
         selectFragment(0)
+        list = ArrayList()
+        list.add("A")
+        list.add("b")
+        list.add("c")
+        list.add("d")
+        val size = list.filter { it == "A" || it == "b" }
+                .map { it.toUpperCase() }
+                .size
+        println("==========长度：$size")
     }
 
     private fun initFragments() {

@@ -1,5 +1,8 @@
 package com.example.wk.frameworkk.bean
 
+import android.arch.persistence.room.Entity
+import android.arch.persistence.room.PrimaryKey
+
 /**
  * <p>
  * Author : WangKang <p>
@@ -8,7 +11,9 @@ package com.example.wk.frameworkk.bean
  * <p>
  * E-mail:wangkang@huolicai.com
  */
-data class LoginResponse(
+@Entity(tableName = "table_user")
+data class User(
+        @PrimaryKey
         var id: Int,
         var username: String,
         var password: String,

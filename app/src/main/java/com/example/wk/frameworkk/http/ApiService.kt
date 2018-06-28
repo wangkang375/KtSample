@@ -2,7 +2,7 @@ package com.example.wk.frameworkk.http
 
 import com.example.wk.frameworkk.bean.BannerRe
 import com.example.wk.frameworkk.bean.HomeResponse
-import com.example.wk.frameworkk.bean.LoginResponse
+import com.example.wk.frameworkk.bean.User
 import com.example.wk.frameworkk.bean.Response
 import io.reactivex.Observable
 import retrofit2.http.*
@@ -38,14 +38,14 @@ interface ApiService {
      * 登录
      * @param username username
      * @param password password
-     * @return Deferred<LoginResponse>
+     * @return Deferred<User>
      */
     @POST("/user/login")
     @FormUrlEncoded
     fun loginWanAndroid(
             @Field("username") username: String,
             @Field("password") password: String
-    ): Observable<Response<LoginResponse>>
+    ): Observable<Response<User>>
 
     /**
      * 注册
@@ -57,5 +57,5 @@ interface ApiService {
             @Field("username") username: String,
             @Field("password") password: String,
             @Field("repassword") repassowrd: String
-    ): Observable<Response<LoginResponse>>
+    ): Observable<Response<User>>
 }

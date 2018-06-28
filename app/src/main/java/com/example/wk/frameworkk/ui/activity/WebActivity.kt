@@ -2,8 +2,6 @@ package com.example.wk.frameworkk.ui.activity
 
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
-import android.graphics.Color
-import android.icu.lang.UCharacter.GraphemeClusterBreak.V
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.Menu
@@ -15,9 +13,7 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
-import cn.sharesdk.sina.weibo.SinaWeibo
 import cn.sharesdk.tencent.qq.QQ
-import cn.sharesdk.wechat.friends.Wechat
 import com.example.wk.frameworkk.R
 import com.example.wk.frameworkk.base.BaseActivity
 import com.example.wk.frameworkk.constant.AppConstant
