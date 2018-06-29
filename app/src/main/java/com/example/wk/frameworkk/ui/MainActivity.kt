@@ -1,17 +1,15 @@
 package com.example.wk.frameworkk.ui
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
+import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentTransaction
-import android.support.v7.widget.RecyclerView
-import android.widget.Toast
+import android.view.MenuItem
 import cn.jpush.android.api.JPushInterface
-import com.aurelhubert.ahbottomnavigation.AHBottomNavigation
-import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem
 import com.example.wk.frameworkk.R
-
 import com.example.wk.frameworkk.base.BaseActivity
 import com.example.wk.frameworkk.ui.collect.CollectFragment
 import com.example.wk.frameworkk.ui.find.FindFragment
@@ -20,7 +18,9 @@ import com.example.wk.frameworkk.ui.mine.MineFragment
 import kotlinx.android.synthetic.main.activity_main2.*
 
 
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
+
+
     var fragmentTags: Array<String> = arrayOf("首页", "消息", "发现", "我的")
     var fragments: ArrayList<Fragment> = ArrayList()
     var homeFragment: HomeFragment? = null
@@ -85,27 +85,36 @@ class MainActivity : BaseActivity() {
         return R.layout.activity_main2
     }
 
-    /**
-     * test
-     */
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.item_home -> {
+                selectFragment(0)
+                return true
+            }
+            R.id.item_find -> {
+                selectFragment(1)
+                return true
+            }
+            R.id.item_collect -> {
+                selectFragment(2)
+                return true
+            }
+            R.id.item_mine -> {
+                selectFragment(3)
+                return true
+            }
+            else -> {
+            }
+        }
+        return false
+    }
 
     /**
      * 配置底部导航栏
      */
     private fun setupNav() {
-        val home = AHBottomNavigationItem("首页", R.drawable.ic_home_black_24dp)
-        val find = AHBottomNavigationItem("发现", R.drawable.ic_find_in_page_black_24dp)
-        val mine = AHBottomNavigationItem("我的", R.drawable.ic_assignment_ind_black_24dp)
-        val news = AHBottomNavigationItem("消息", R.drawable.ic_message_black_24dp)
-        bottom_navigation_.addItem(home)
-        bottom_navigation_.addItem(news)
-        bottom_navigation_.addItem(find)
-        bottom_navigation_.addItem(mine)
-        bottom_navigation_.titleState = AHBottomNavigation.TitleState.ALWAYS_SHOW
-        bottom_navigation_.setOnTabSelectedListener { position, _ ->
-            selectFragment(position)
-            true
-        }
+        bottom_navigation_.setOnNavigationItemSelectedListener(this)
     }
 
     /**

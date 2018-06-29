@@ -89,7 +89,7 @@ class HomeFragment : BaseFragment(), OnclickItem<BannerRe, BannerVH> {
     private fun request() {
 
 
-        val serverInfo = HttpManager.api().getHomeInfo(0)
+        val serverInfo = HttpManager.androidApi().getHomeInfo(0)
         serverInfo.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { t: Response<HomeResponse>? -> showHomeAdapter(t?.data?.datas) }
@@ -103,7 +103,7 @@ class HomeFragment : BaseFragment(), OnclickItem<BannerRe, BannerVH> {
     }
 
     private fun getHomeBanner() {
-        HttpManager.api().getHomeBanner()
+        HttpManager.androidApi().getHomeBanner()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { t: Response<ArrayList<BannerRe>>? -> t?.data?.let { setAdapter(it) } }

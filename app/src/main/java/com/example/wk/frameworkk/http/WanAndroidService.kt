@@ -11,11 +11,11 @@ import retrofit2.http.*
  * <p>
  * Author : WangKang <p>
  * Created: 2018/6/22 <P>
- * Description: 接口服务
+ * Description:wanAndroid的 接口服务
  * <p>
  * E-mail:wangkang@huolicai.com
  */
-interface ApiService {
+interface WanAndroidService {
     /**
      * 获得首页数据
      */

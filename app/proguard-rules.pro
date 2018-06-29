@@ -28,3 +28,5 @@
 
 -dontwarn cn.jiguang.**
 -keep class cn.jiguang.** { *; }
+
+-keep class android.support.v8.renderscript.** { *; }

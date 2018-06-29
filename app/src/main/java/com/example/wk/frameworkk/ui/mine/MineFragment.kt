@@ -72,7 +72,7 @@ class MineFragment : BaseFragment() {
     }
 
     private fun loginA() {
-        HttpManager.api().loginWanAndroid(name?.text.toString(), password?.text.toString())
+        HttpManager.androidApi().loginWanAndroid(name?.text.toString(), password?.text.toString())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { t: Response<User>? ->
@@ -82,7 +82,7 @@ class MineFragment : BaseFragment() {
     }
 
     private fun registerA() {
-        HttpManager.api().registerWanAndroid(name?.text.toString(), password?.text.toString(), password?.text.toString())
+        HttpManager.androidApi().registerWanAndroid(name?.text.toString(), password?.text.toString(), password?.text.toString())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ t -> toast(t) })

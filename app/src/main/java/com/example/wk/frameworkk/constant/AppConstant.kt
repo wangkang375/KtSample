@@ -11,9 +11,13 @@ package com.example.wk.frameworkk.constant
 class AppConstant {
 
     companion object {
-        var BASE_URL = "http://www.wanandroid.com"
-        var SP_NAME="ktsample"
-        val WEB_URL="WEB_URL"
-        val TITLE="TITLE"
+        //wanandroid
+        const val WANDROID_URL = "http://www.wanandroid.com"
+        //天眼
+        const val TIANYAN_URL = "http://baobab.kaiyanapp.com/api/"
+        var SP_NAME = "ktsample"
+        val WEB_URL = "WEB_URL"
+        val TITLE = "TITLE"
     }
+
 }
