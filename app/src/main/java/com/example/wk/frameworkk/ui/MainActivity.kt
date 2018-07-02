@@ -1,7 +1,6 @@
 package com.example.wk.frameworkk.ui
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.support.design.widget.BottomNavigationView
@@ -11,7 +10,7 @@ import android.view.MenuItem
 import cn.jpush.android.api.JPushInterface
 import com.example.wk.frameworkk.R
 import com.example.wk.frameworkk.base.BaseActivity
-import com.example.wk.frameworkk.ui.collect.CollectFragment
+import com.example.wk.frameworkk.ui.collect.TYFragment
 import com.example.wk.frameworkk.ui.find.FindFragment
 import com.example.wk.frameworkk.ui.home.HomeFragment
 import com.example.wk.frameworkk.ui.mine.MineFragment
@@ -24,7 +23,7 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
     var fragmentTags: Array<String> = arrayOf("首页", "消息", "发现", "我的")
     var fragments: ArrayList<Fragment> = ArrayList()
     var homeFragment: HomeFragment? = null
-    var collectFragment: CollectFragment? = null
+    var collectFragment: TYFragment? = null
     var findFragment: FindFragment? = null
     var mineFragment: MineFragment? = null
     override fun initInstanceState(savedInstanceState: Bundle?) {
@@ -54,7 +53,7 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
 
     private fun initFragments() {
         homeFragment = HomeFragment.getInstance(fragmentTags[0])
-        collectFragment = CollectFragment.getInstance(fragmentTags[1])
+        collectFragment = TYFragment.getInstance(fragmentTags[1])
         findFragment = FindFragment.getInstance(fragmentTags[2])
         mineFragment = MineFragment.getInstance(fragmentTags[3])
         fragments.add(homeFragment!!)

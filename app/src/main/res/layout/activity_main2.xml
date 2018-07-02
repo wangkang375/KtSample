@@ -33,6 +33,5 @@
     <com.github.mmin18.widget.RealtimeBlurView
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:realtimeBlurRadius="30dp" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 </android.support.constraint.ConstraintLayout>

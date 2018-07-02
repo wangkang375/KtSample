@@ -37,7 +37,7 @@ data class HomeItem(
         val publishTime: Long,
         val superChapterId: Int,
         val superChapterName: String,
-        val tags: List<Tag>,
+        val tags: List<HomeTag>,
         val title: String,
         val type: Int,
         val userId: Int,
@@ -45,7 +45,7 @@ data class HomeItem(
         val zan: Int
 )
 
-data class Tag(
+data class HomeTag(
         val name: String,
         val url: String
 )
