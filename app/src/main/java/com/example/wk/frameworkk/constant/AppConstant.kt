@@ -11,13 +11,15 @@ package com.example.wk.frameworkk.constant
 class AppConstant {
 
     companion object {
-        //wanandroid
-        const val WANDROID_URL = "http://www.wanandroid.com"
-        //天眼
-        const val TIANYAN_URL = "http://baobab.kaiyanapp.com/api/"
         var SP_NAME = "ktsample"
         val WEB_URL = "WEB_URL"
         val TITLE = "TITLE"
     }
 
+    enum class URL(val url: String) {
+        //wanandroid
+        WANANDROID("http://www.wanandroid.com"),
+        //天眼
+        TIANYAN("http://baobab.kaiyanapp.com/api/")
+    }
 }

@@ -45,10 +45,10 @@ object HttpManager {
                 .build()
     }
 
-    fun androidApi(): WanAndroidService = init(AppConstant.WANDROID_URL).create(WanAndroidService::class.java)
+    fun androidApi(): WanAndroidService = init(AppConstant.URL.WANANDROID.url).create(WanAndroidService::class.java)
 
 
-    fun tianYanApi(): TianYanService = init(AppConstant.TIANYAN_URL).create(TianYanService::class.java)
+    fun tianYanApi(): TianYanService = init(AppConstant.URL.TIANYAN.url).create(TianYanService::class.java)
 
 
 }
