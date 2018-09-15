@@ -29,9 +29,19 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
+         initGit1()
         context = applicationContext
         initSDK()
+        initGit2()
+    }
+
+    private fun initGit2() {
+
+
+    }
+
+    private fun initGit1() {
+
 
     }
 
@@ -40,7 +50,7 @@ class App : Application() {
         MobSDK.init(this)
         JPushInterface.setDebugMode(true)
         JPushInterface.init(this)
-        val string="111"
+        val string="dev2"
     }
 
 }
