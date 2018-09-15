@@ -40,7 +40,7 @@ class App : Application() {
         MobSDK.init(this)
         JPushInterface.setDebugMode(true)
         JPushInterface.init(this)
-
+        val string="111"
     }
 
 }
