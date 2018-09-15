@@ -29,13 +29,22 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
+         initGit1()
         context = applicationContext
         initSDK()
         initTest()
     }
 
     private fun initTest() {
+        initGit2()
+    }
+
+    private fun initGit2() {
+
+
+    }
+
+    private fun initGit1() {
 
 
     }
