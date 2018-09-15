@@ -27,6 +27,12 @@ abstract class BaseActivity : AppCompatActivity(), PlatformActionListener {
         initInstanceState(savedInstanceState)
         initView()
         initData()
+        initTest()
+    }
+
+    private fun initTest() {
+
+
     }
 
     public fun initToolbar(title: String) {

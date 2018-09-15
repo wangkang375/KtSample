@@ -31,6 +31,11 @@ class App : Application() {
         super.onCreate()
         context = applicationContext
         initSDK()
+        initTest()
+    }
+
+    private fun initTest() {
+
 
     }
 
